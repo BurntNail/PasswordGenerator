@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c29a9315-3b6b-4483-b23a-4202eb55a5b3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/PasswordGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PasswordGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PasswordGenGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PasswordGenGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="c29a9315-3b6b-4483-b23a-4202eb55a5b3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +29,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="4347" />
-          <entry key="PLAIN_TEXT" value="105" />
+          <entry key="PLAIN_TEXT" value="174" />
         </counts>
       </usages-collector>
     </session>
@@ -138,7 +135,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556986356488" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556987155883" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -198,12 +195,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556985727353</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="uppercase bug fix - arrays in decleration were the wrong way round">
+      <created>1556986382605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556986382605</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25377643" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -237,10 +240,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="New Method - More Accurate&#10;Based off of C# Version" />
     <MESSAGE value="better default numbers" />
     <MESSAGE value="uppercase try - bugs still exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="uppercase try - bugs still exist" />
+    <MESSAGE value="uppercase bug fix - arrays in decleration were the wrong way round" />
+    <option name="LAST_COMMIT_MESSAGE" value="uppercase bug fix - arrays in decleration were the wrong way round" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
