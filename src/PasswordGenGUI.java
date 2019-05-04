@@ -35,11 +35,11 @@ public class PasswordGenGUI {
         pwordField.setEditable(false);
         pwordField.setPreferredSize(PWordFieldSize);
 
-        lettersNTF = new JTextField("10");
+        lettersNTF = new JTextField("2");
         lettersNTF.setToolTipText("How many letters?");
-        numbersNTF = new JTextField("10");
+        numbersNTF = new JTextField("2");
         numbersNTF.setToolTipText("How many numbers?");
-        specCharsNTF = new JTextField("5");
+        specCharsNTF = new JTextField("2");
         specCharsNTF.setToolTipText("How many Special Charcters?");
 
         lettersB = new Checkbox("Do you want letters?", true);
