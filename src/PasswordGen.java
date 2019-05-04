@@ -92,23 +92,22 @@ public class PasswordGen {
         {
             for (int i = 0; i < upperN; i++)
             {
-                int rndN = rnd.nextInt(upperArr.length);
-                char c = upperArr[rndN];
-                endList.add(c + "");
+                int rndNU = rnd.nextInt(upperArr.length);
+                char cU = upperArr[rndNU];
+                endList.add(cU + "");
             }
         }
         if(specCharsBool)
         {
             for (int i = 0; i < specCharsN; i++) {
-                int rndN = rnd.nextInt(lettersArr.length);
-                char c = specChars[rndN];
-                endList.add(c + "");
+                int RndN = rnd.nextInt(lettersArr.length);
+                char C = specChars[RndN];
+                endList.add(C + "");
             }
         }
         
-        int size = endList.size();
-
         String str = "";
+        int size = endList.size();
 
         for (int i = 0; i < size; i++)
         {

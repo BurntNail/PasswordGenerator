@@ -35,14 +35,14 @@ public class PasswordGenGUI {
         pwordField.setEditable(false);
         pwordField.setPreferredSize(PWordFieldSize);
 
-        lettersNTF = new JTextField("2");
+        lettersNTF = new JTextField("10");
         lettersNTF.setToolTipText("How many Lowercase letters?");
-        numbersNTF = new JTextField("2");
-        numbersNTF.setToolTipText("How many numbers?");
-        specCharsNTF = new JTextField("2");
-        specCharsNTF.setToolTipText("How many Special Charcters?");
-        upperLettersNTF = new JTextField("2");
+        upperLettersNTF = new JTextField("10");
         upperLettersNTF.setToolTipText("How many Uppercase letters?");
+        numbersNTF = new JTextField("5");
+        numbersNTF.setToolTipText("How many numbers?");
+        specCharsNTF = new JTextField("5");
+        specCharsNTF.setToolTipText("How many Special Charcters?");
 
         lettersB = new Checkbox("Do you want Lowercase letters?", true);
         numbersB = new Checkbox("Do you want numbers?", true);
@@ -85,7 +85,7 @@ public class PasswordGenGUI {
                 int si = tryInt(specCharsNTF.getText());
                 int ui = tryInt(upperLettersNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, getLetters(true), getLetters(false),getSCs(), ni, li, si, ui);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, getLetters(true),getSCs(), getLetters(false), ni, li, si, ui);
                 pwordField.setText(temp);
             }
         });
