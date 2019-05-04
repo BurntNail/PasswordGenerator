@@ -68,7 +68,7 @@ public class PasswordGen {
 //        return temp;
 //    }
 
-    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, char[] lettersArr, char[] specChars, int numbersN, int lettersN, int specCharsN)
+    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, char[] lettersArr, char[] specChars, char[] upperArr, int numbersN, int lettersN, int specCharsN, int upperN)
     {
         Random rnd = new Random();
 
@@ -85,6 +85,15 @@ public class PasswordGen {
             for (int i = 0; i < lettersN; i++) {
                 int rndN = rnd.nextInt(lettersArr.length);
                 char c = lettersArr[rndN];
+                endList.add(c + "");
+            }
+        }
+        if(upperBool)
+        {
+            for (int i = 0; i < upperN; i++)
+            {
+                int rndN = rnd.nextInt(upperArr.length);
+                char c = upperArr[rndN];
                 endList.add(c + "");
             }
         }

@@ -8,8 +8,8 @@ import java.util.StringJoiner;
 public class PasswordGenGUI {
 
     private JFrame frame;
-    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF;
-    private Checkbox lettersB, numbersB, specCharsB;
+    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF;
+    private Checkbox lettersB, numbersB, specCharsB, upperLettersB;
     private Dimension frameSize, PWordFieldSize;
     private JPanel bottomPanel;
     private JButton go;
@@ -29,27 +29,32 @@ public class PasswordGenGUI {
         go.setPreferredSize(PWordFieldSize);
 
         bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(3, 2));
+        bottomPanel.setLayout(new GridLayout(4, 2));
 
         pwordField = new JTextField("Password Goes Here");
         pwordField.setEditable(false);
         pwordField.setPreferredSize(PWordFieldSize);
 
         lettersNTF = new JTextField("2");
-        lettersNTF.setToolTipText("How many letters?");
+        lettersNTF.setToolTipText("How many Lowercase letters?");
         numbersNTF = new JTextField("2");
         numbersNTF.setToolTipText("How many numbers?");
         specCharsNTF = new JTextField("2");
         specCharsNTF.setToolTipText("How many Special Charcters?");
+        upperLettersNTF = new JTextField("2");
+        upperLettersNTF.setToolTipText("How many Uppercase letters?");
 
-        lettersB = new Checkbox("Do you want letters?", true);
+        lettersB = new Checkbox("Do you want Lowercase letters?", true);
         numbersB = new Checkbox("Do you want numbers?", true);
         specCharsB = new Checkbox("Do you want special characters?", true);
+        upperLettersB = new Checkbox("Do you want Uppercase letters?", true);
         //endregion
 
         //region Mostly adders
         bottomPanel.add(lettersB);
         bottomPanel.add(lettersNTF);
+        bottomPanel.add(upperLettersB);
+        bottomPanel.add(upperLettersNTF);
         bottomPanel.add(numbersB);
         bottomPanel.add(numbersNTF);
         bottomPanel.add(specCharsB);
@@ -73,12 +78,14 @@ public class PasswordGenGUI {
                 boolean nb = numbersB.getState();
                 boolean lb = lettersB.getState();
                 boolean sb = specCharsB.getState();
+                boolean ub = upperLettersB.getState();
 
                 int ni = tryInt(numbersNTF.getText());
                 int li = tryInt(lettersNTF.getText());
                 int si = tryInt(specCharsNTF.getText());
+                int ui = tryInt(upperLettersNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, getLetters(), getSCs(), ni, li, si);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, getLetters(true), getLetters(false),getSCs(), ni, li, si, ui);
                 pwordField.setText(temp);
             }
         });
@@ -86,10 +93,14 @@ public class PasswordGenGUI {
 
     }
 
-    public char[] getLetters ()
+    public char[] getLetters (boolean lowercase)
     {
-        char[] letters = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        return letters;
+        char[] letters = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        char[] upper = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+        if(lowercase)
+            return letters;
+        else
+            return upper;
     }
 
     public char[] getSCs ()
