@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c29a9315-3b6b-4483-b23a-4202eb55a5b3" name="Default Changelist" comment="" />
+    <list default="true" id="c29a9315-3b6b-4483-b23a-4202eb55a5b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ideas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ideas.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,19 +26,20 @@
           <entry key="Concept" value="1" />
           <entry key="GUI_DESIGNER_FORM" value="1" />
           <entry key="JAVA" value="5" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="4347" />
-          <entry key="PLAIN_TEXT" value="174" />
+          <entry key="PLAIN_TEXT" value="244" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PasswordGenGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="343">
@@ -47,6 +50,15 @@
                 <element signature="method#getLetters#0;class#PasswordGenGUI#0" />
                 <element signature="method#tryInt#0;class#PasswordGenGUI#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ideas.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -100,6 +112,7 @@
         <option value="$PROJECT_DIR$/src/program.java" />
         <option value="$PROJECT_DIR$/src/PasswordGen.java" />
         <option value="$PROJECT_DIR$/src/PasswordGenGUI.java" />
+        <option value="$PROJECT_DIR$/ideas.txt" />
       </list>
     </option>
   </component>
@@ -135,7 +148,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556987155883" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556987466727" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -202,13 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556986382605</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ideas.txt made">
+      <created>1556987165787</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1556987165787</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25377643" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25377643" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -217,7 +238,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35100287" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35100287" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39971346" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -245,7 +266,8 @@
     <MESSAGE value="better default numbers" />
     <MESSAGE value="uppercase try - bugs still exist" />
     <MESSAGE value="uppercase bug fix - arrays in decleration were the wrong way round" />
-    <option name="LAST_COMMIT_MESSAGE" value="uppercase bug fix - arrays in decleration were the wrong way round" />
+    <MESSAGE value="ideas.txt made" />
+    <option name="LAST_COMMIT_MESSAGE" value="ideas.txt made" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -531,6 +553,13 @@
             <element signature="method#getLetters#0;class#PasswordGenGUI#0" />
             <element signature="method#tryInt#0;class#PasswordGenGUI#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ideas.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
         </state>
       </provider>
     </entry>
