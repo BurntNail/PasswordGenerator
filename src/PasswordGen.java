@@ -68,7 +68,7 @@ public class PasswordGen {
 //        return temp;
 //    }
 
-    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, char[] lettersArr, char[] specChars, char[] upperArr, int numbersN, int lettersN, int specCharsN, int upperN)
+    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN)
     {
         Random rnd = new Random();
 
@@ -105,6 +105,24 @@ public class PasswordGen {
                 endList.add(C + "");
             }
         }
+        if(accentsB)
+        {
+            for (int i = 0; i < accentsN; i++)
+            {
+                int rndNU = rnd.nextInt(accents.length);
+                char cU = accents[rndNU];
+                endList.add(cU + "");
+            }
+        }
+        if(upperAccentsB)
+        {
+            for (int i = 0; i < upperAccentsN; i++)
+            {
+                int rndNU = rnd.nextInt(upperAccents.length);
+                char cU = upperAccents[rndNU];
+                endList.add(cU + "");
+            }
+        }
         
         String str = "";
         int size = endList.size();
@@ -115,6 +133,10 @@ public class PasswordGen {
             str += endList.get(rndN);
             endList.remove(rndN);
         }
+
+        System.out.println("numbersBool = [" + numbersBool + "], lettersBool = [" + lettersBool + "], specCharsBool = [" + specCharsBool + "], upperBool = [" + upperBool + "], lettersArr = [" + lettersArr + "], specChars = [" + specChars + "], upperArr = [" + upperArr + "], numbersN = [" + numbersN + "], lettersN = [" + lettersN + "], specCharsN = [" + specCharsN + "], upperN = [" + upperN + "]");
+        System.out.println("PasswordGen.getPassword");
+        System.out.println("str = " + str);
 
         return str;
 

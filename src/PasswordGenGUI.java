@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 public class PasswordGenGUI {
 
     private JFrame frame;
-    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF;
-    private Checkbox lettersB, numbersB, specCharsB, upperLettersB;
-    private Dimension frameSize, PWordFieldSize, goButtonSize;
+    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF, accentsNTF, upperAccentsNTF;
+    private Checkbox lettersB, numbersB, specCharsB, upperLettersB, accentsB, upperAccentsB;
+    private Dimension frameSize, PWordFieldSize;
     private JPanel bottomPanel;
     private JButton go;
     private JMenuBar menuBar;
@@ -29,7 +29,7 @@ public class PasswordGenGUI {
         frame.setLayout(new BorderLayout());
 
         bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(4, 2));
+        bottomPanel.setLayout(new GridLayout(6, 2));
 
         pwordField = new JTextField("Password Goes Here");
         pwordField.setEditable(false);
@@ -45,11 +45,17 @@ public class PasswordGenGUI {
         numbersNTF.setToolTipText("How many numbers?");
         specCharsNTF = new JTextField("5");
         specCharsNTF.setToolTipText("How many Special Charcters?");
+        accentsNTF = new JTextField("5");
+        accentsNTF.setToolTipText("How many Lowercase charcters with Accents?");
+        upperAccentsNTF = new JTextField("5");
+        upperAccentsNTF.setToolTipText("How many Uppercase charcters with Accents?");
 
         lettersB = new Checkbox("Do you want Lowercase letters?", true);
         numbersB = new Checkbox("Do you want numbers?", true);
         specCharsB = new Checkbox("Do you want special characters?", true);
         upperLettersB = new Checkbox("Do you want Uppercase letters?", true);
+        accentsB = new Checkbox("Do you want Lowercase characters with accents?", true);
+        upperAccentsB = new Checkbox("Do you want Uppercase characters with accents?", true);
 
         Copy = new JMenuItem("Copy");
         Options = new JMenu("Options");
@@ -63,6 +69,10 @@ public class PasswordGenGUI {
         bottomPanel.add(lettersNTF);
         bottomPanel.add(upperLettersB);
         bottomPanel.add(upperLettersNTF);
+        bottomPanel.add(accentsB);
+        bottomPanel.add(accentsNTF);
+        bottomPanel.add(upperAccentsB);
+        bottomPanel.add(upperAccentsNTF);
         bottomPanel.add(numbersB);
         bottomPanel.add(numbersNTF);
         bottomPanel.add(specCharsB);
@@ -89,13 +99,17 @@ public class PasswordGenGUI {
                 boolean lb = lettersB.getState();
                 boolean sb = specCharsB.getState();
                 boolean ub = upperLettersB.getState();
+                boolean ab = accentsB.getState();
+                boolean aub = upperAccentsB.getState();
 
                 int ni = tryInt(numbersNTF.getText());
                 int li = tryInt(lettersNTF.getText());
                 int si = tryInt(specCharsNTF.getText());
                 int ui = tryInt(upperLettersNTF.getText());
+                int ai = tryInt(accentsNTF.getText());
+                int uai = tryInt(upperLettersNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, getLetters(true),getSCs(), getLetters(false), ni, li, si, ui);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), ni, li, si, ui, ai, uai);
                 pwordField.setText(temp);
             }
         });
@@ -123,7 +137,15 @@ public class PasswordGenGUI {
         else
             return upper;
     }
-
+    public char[] getAccents (boolean lowercase)
+    {
+        char[] letters = {'è', 'é', 'ê', 'ë', 'ē', 'ė', 'ę', 'ÿ', 'û', 'ü', 'ù', 'ú', 'ū', 'î', 'ï', 'í', 'ī', 'į', 'ì', 'ô', 'ö', 'ò', 'ó', 'œ', 'ø', 'ō', 'õ', 'à', 'á', 'â', 'ä', 'æ', 'ã', 'å', 'ā', 'ß', 'ś', 'š', 'ł', 'ž', 'ź', 'ż', 'ç', 'ć', 'č', 'ñ', 'ń'};
+        char[] upper = {'È', 'É', 'Ê', 'Ë', 'Ē', 'Ė', 'Ę', 'Ÿ', 'Û', 'Ü', 'Ù', 'Ú', 'Ū', 'Î', 'Ï', 'Í', 'Ī', 'Į', 'Ì', 'Ô', 'Ö', 'Ò', 'Ó', 'Œ', 'Ø', 'Ō', 'Õ', 'À', 'Á', 'Â', 'Ä', 'Æ', 'Ã', 'Å', 'Ā', 'Ś', 'Š', 'Ł', 'Ž', 'Ź', 'Ż', 'Ç', 'Ć', 'Č', 'Ñ', 'Ń'};
+        if(lowercase)
+            return letters;
+        else
+            return upper;
+    }
     public char[] getSCs ()
     {
         char[] specChars = {'`', '~', '§', '±', '!', '@', '€', '£', '#', '$', '¢', '›', '%', '∞', 'ﬁ', '^', '&', '*', '(', '·', '°', '‡', '¶', '•', 'ª', ')', 'ª', '‚', '-', '_', '+', '=', '+', '{', '[', '“', '}', ']', '‘', ';', ':', '…', '"', '\'', 'æ', '\\', '|', '«', '»', '<', ',', '≤', '¯', '.', '>', '≥', '˘', '?', '/'};
