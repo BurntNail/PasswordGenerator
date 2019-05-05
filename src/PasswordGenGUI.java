@@ -15,22 +15,27 @@ public class PasswordGenGUI {
     private JButton go;
     private JMenuBar menuBar;
     private JMenu Options, Words, Numbers;
-    private JMenuItem Copy, WordsMixWithChars, WordsStayAlone, CurrentSettingsForWords, RandomCapsOn, RandomCapsOff, CurrentSettsForNumbers, numberClumpsOn, numberClumpsOff;
-    private boolean wordsMix, randomCaps, clumpedNumbers;
+    private JMenuItem Copy, WordsMixWithChars, WordsStayAlone, CurrentSettingsForWords, RandomCapsOn, RandomCapsOff, CurrentSettsForNumbers, numberClumpsOn, numberClumpsOff, newWindow, newWinSetts, newWindowOff, newWidnowOn;
+    private boolean wordsMix, randomCaps, clumpedNumbers, newWindowChanges;
+    private newWindowGUi newGUi;
 
 
-    public PasswordGenGUI (int w, int h)
+    public PasswordGenGUI (int w, int h, int nww, int nwh)
     {
         //region Mostly init
         wordsMix = false;
         randomCaps = false;
         clumpedNumbers = false;
+        newWindowChanges = false;
+        newWindowChanges = true;
         frameSize = new Dimension(w, h);
         PWordFieldSize = new Dimension(frameSize.width, frameSize.height / 8);
 
         frame = new JFrame("Password Generator");
         frame.setPreferredSize(frameSize);
         frame.setLayout(new BorderLayout());
+
+        newGUi = new newWindowGUi(400, 100);
 
         bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridLayout(8, 2));
@@ -72,8 +77,16 @@ public class PasswordGenGUI {
 
         //region JMenu
         Copy = new JMenuItem("Copy");
+        newWindow = new JMenuItem("Open in new Window");
+        newWidnowOn = new JMenuItem("New Window changes on new Password");
+        newWindowOff = new JMenuItem("New window does NOT change on new Password");
+        newWinSetts = new JMenuItem(helper.getChanger(newWindowChanges));
         Options = new JMenu("Options");
         Options.add(Copy);
+        Options.add(newWindow);
+        Options.add(newWidnowOn);
+        Options.add(newWindowOff);
+        Options.add(newWinSetts);
 
         WordsMixWithChars = new JMenuItem("Words WILL Mix with everything else");
         WordsStayAlone = new JMenuItem("Words will NOT mix");
@@ -176,7 +189,7 @@ public class PasswordGenGUI {
                 int wi = tryInt(wordNTF.getText());
                 int hmmc = tryInt(mostCommonNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), helper.getWordsLimited("top10000.txt", randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), helper.getWordsLimited("top10000.txt", randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi);
                 pwordField.setText(temp);
             }
         });
@@ -234,6 +247,27 @@ public class PasswordGenGUI {
             public void actionPerformed(ActionEvent e) {
                 clumpedNumbers = false;
                 CurrentSettsForNumbers.setText(helper.getMenuTxtNums(clumpedNumbers));
+            }
+        });
+
+        newWindow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newGUi.START();
+            }
+        });
+        newWidnowOn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newWindowChanges = true;
+                newWinSetts.setText(helper.getChanger(newWindowChanges));
+            }
+        });
+        newWindowOff.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                newWindowChanges = false;
+                newWinSetts.setText(helper.getChanger(newWindowChanges));
             }
         });
         //endregion

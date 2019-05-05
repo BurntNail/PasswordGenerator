@@ -151,4 +151,13 @@ public class helper {
         }
     }
 
+    public static String getChanger (boolean changes)
+    {
+        if(changes)
+            return "Currenly Set to : CHANGES ON NEW PASSWORD";
+        else
+            return "Currenly Set to : DOES NOT CHANGE ON NEW PASSWORD";
+
+    }
+
 }
