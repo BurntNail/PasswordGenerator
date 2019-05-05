@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c29a9315-3b6b-4483-b23a-4202eb55a5b3" name="Default Changelist" comment="Words try">
+    <list default="true" id="c29a9315-3b6b-4483-b23a-4202eb55a5b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/google-10000-english-no-swears.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PasswordGen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PasswordGen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PasswordGenGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PasswordGenGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ideas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ideas.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,31 +29,33 @@
           <entry key="Concept" value="1" />
           <entry key="GUI_DESIGNER_FORM" value="1" />
           <entry key="JAVA" value="6" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7184" />
-          <entry key="PLAIN_TEXT" value="346" />
+          <entry key="JAVA" value="8733" />
+          <entry key="PLAIN_TEXT" value="417" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PasswordGenGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="134" column="33" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
+            <state relative-caret-position="511">
+              <caret line="268" selection-start-line="268" selection-end-line="268" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#548#568#0" expanded="true" />
-                <element signature="e#1912#1934#0" expanded="true" />
-                <element signature="class#3762:4236" />
-                <element signature="class#5727:5881" />
-                <element signature="class#5932:6086" />
+                <element signature="class#4338:6042" />
+                <element signature="class#6081:6555" />
+                <element signature="class#6607:6837" />
+                <element signature="class#6885:7121" />
+                <element signature="class#7528:7666" />
+                <element signature="class#7821:7959" />
+                <element signature="class#8643:8781" />
                 <element signature="method#getLetters#0;class#PasswordGenGUI#0" />
                 <element signature="method#getAccents#0;class#PasswordGenGUI#0" />
                 <element signature="method#getSCs#0;class#PasswordGenGUI#0" />
@@ -65,8 +68,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PasswordGen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
+            <state relative-caret-position="341">
+              <caret line="89" column="34" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,11 +77,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ideas.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/helper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
+            <state relative-caret-position="227">
+              <caret line="84" column="39" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -112,9 +124,13 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>numbers</find>
+      <find>CurrentSettingsForWordsMixing</find>
+      <find>getMenuTxt</find>
     </findStrings>
     <replaceStrings>
       <replace>numbersBool</replace>
+      <replace>CurrentSettingsForWords</replace>
+      <replace>getMenuTxtWords</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -124,12 +140,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/PasswordGeneratorGUI.form" />
-        <option value="$PROJECT_DIR$/ideas.txt" />
         <option value="$PROJECT_DIR$/src/program.java" />
         <option value="$PROJECT_DIR$/src/words.txt" />
-        <option value="$PROJECT_DIR$/src/PasswordGen.java" />
         <option value="$PROJECT_DIR$/src/helper.java" />
         <option value="$PROJECT_DIR$/src/PasswordGenGUI.java" />
+        <option value="$PROJECT_DIR$/src/PasswordGen.java" />
+        <option value="$PROJECT_DIR$/ideas.txt" />
       </list>
     </option>
   </component>
@@ -164,7 +180,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557040726060" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557042659160" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -264,14 +280,28 @@
       <option name="project" value="LOCAL" />
       <updated>1557038601476</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="words implemented">
+      <created>1557040748187</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557040748187</updated>
+    </task>
+    <task id="LOCAL-00010" summary="rndcaps&#10;numberclumps">
+      <created>1557042527525</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1557042527525</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25377643" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25377643" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -280,7 +310,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35100287" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35100287" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39971346" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -312,7 +342,9 @@
     <MESSAGE value="accents in ideas.txt" />
     <MESSAGE value="copy implemented" />
     <MESSAGE value="accents and uppercase accents implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="accents and uppercase accents implemented" />
+    <MESSAGE value="words implemented" />
+    <MESSAGE value="rndcaps&#10;numberclumps" />
+    <option name="LAST_COMMIT_MESSAGE" value="rndcaps&#10;numberclumps" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/PasswordGeneratorGUI.form" />
@@ -325,13 +357,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/idk.cpt" />
-    <entry file="file://$PROJECT_DIR$/ideas.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -348,18 +373,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/helper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="44" column="38" selection-start-line="44" selection-start-column="38" selection-end-line="44" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PasswordGen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="130" column="31" selection-start-line="130" selection-start-column="31" selection-end-line="130" selection-end-column="31" />
+        <state relative-caret-position="227">
+          <caret line="84" column="39" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -368,20 +383,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PasswordGenGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="134" column="33" selection-start-line="134" selection-start-column="33" selection-end-line="134" selection-end-column="33" />
+        <state relative-caret-position="511">
+          <caret line="268" selection-start-line="268" selection-end-line="268" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#548#568#0" expanded="true" />
-            <element signature="e#1912#1934#0" expanded="true" />
-            <element signature="class#3762:4236" />
-            <element signature="class#5727:5881" />
-            <element signature="class#5932:6086" />
+            <element signature="class#4338:6042" />
+            <element signature="class#6081:6555" />
+            <element signature="class#6607:6837" />
+            <element signature="class#6885:7121" />
+            <element signature="class#7528:7666" />
+            <element signature="class#7821:7959" />
+            <element signature="class#8643:8781" />
             <element signature="method#getLetters#0;class#PasswordGenGUI#0" />
             <element signature="method#getAccents#0;class#PasswordGenGUI#0" />
             <element signature="method#getSCs#0;class#PasswordGenGUI#0" />
             <element signature="method#tryInt#0;class#PasswordGenGUI#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PasswordGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="89" column="34" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ideas.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
