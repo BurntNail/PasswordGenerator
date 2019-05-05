@@ -14,15 +14,17 @@ public class PasswordGenGUI {
     private JPanel bottomPanel;
     private JButton go;
     private JMenuBar menuBar;
-    private JMenu Options;
-    private JMenuItem Copy, WordsMixWithChars, WordsStayAlone, CurrentSettingsForWordsMixing;
-    private boolean wordsMix;
+    private JMenu Options, Words, Numbers;
+    private JMenuItem Copy, WordsMixWithChars, WordsStayAlone, CurrentSettingsForWords, RandomCapsOn, RandomCapsOff, CurrentSettsForNumbers, numberClumpsOn, numberClumpsOff;
+    private boolean wordsMix, randomCaps, clumpedNumbers;
 
 
     public PasswordGenGUI (int w, int h)
     {
         //region Mostly init
         wordsMix = false;
+        randomCaps = false;
+        clumpedNumbers = false;
         frameSize = new Dimension(w, h);
         PWordFieldSize = new Dimension(frameSize.width, frameSize.height / 8);
 
@@ -61,19 +63,39 @@ public class PasswordGenGUI {
         accentsB = new Checkbox("Do you want Lowercase characters with accents?", false);
         upperAccentsB = new Checkbox("Do you want Uppercase characters with accents?", false);
         wordsB = new Checkbox("How many words do you want?", true);
+        //endregion
 
+
+        //region JMenu
         Copy = new JMenuItem("Copy");
-        WordsMixWithChars = new JMenuItem("Words Mix with everything else");
-        WordsStayAlone = new JMenuItem("Words will not mix");
-        CurrentSettingsForWordsMixing = new JMenuItem("Currently Set to: NOT MIXING");
         Options = new JMenu("Options");
         Options.add(Copy);
-        Options.add(WordsMixWithChars);
-        Options.add(WordsStayAlone);
-        Options.add(CurrentSettingsForWordsMixing);
+
+        WordsMixWithChars = new JMenuItem("Words WILL Mix with everything else");
+        WordsStayAlone = new JMenuItem("Words will NOT mix");
+        RandomCapsOff = new JMenuItem("Random Caps OFF");
+        RandomCapsOn = new JMenuItem("Random Caps ON");
+        CurrentSettingsForWords = new JMenuItem(helper.getMenuTxtWords(wordsMix, randomCaps));
+        Words = new JMenu("Words");
+        Words.add(WordsMixWithChars);
+        Words.add(WordsStayAlone);
+        Words.add(RandomCapsOn);
+        Words.add(RandomCapsOff);
+        Words.add(CurrentSettingsForWords);
+
+        numberClumpsOn = new JMenuItem("Numbers WILL be lumped together as one");
+        numberClumpsOff = new JMenuItem("Numbers will NOT be lumped together");
+        CurrentSettsForNumbers = new JMenuItem(helper.getMenuTxtNums(clumpedNumbers));
+        Numbers = new JMenu("Numbers");
+        Numbers.add(numberClumpsOn);
+        Numbers.add(numberClumpsOff);
+        Numbers.add(CurrentSettsForNumbers);
         menuBar = new JMenuBar();
         menuBar.add(Options);
+        menuBar.add(Words);
+        menuBar.add(Numbers);
         //endregion
+
 
         //region Mostly adders
         bottomPanel.add(lettersB);
@@ -98,6 +120,7 @@ public class PasswordGenGUI {
         frame.setJMenuBar(menuBar);
         //endregion
 
+
         //region JFRame BP
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
@@ -105,6 +128,8 @@ public class PasswordGenGUI {
         frame.setLocationRelativeTo(null);
         //endregion
 
+
+        //region Action Listeners
         go.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -143,7 +168,7 @@ public class PasswordGenGUI {
                 int uai = tryInt(upperLettersNTF.getText());
                 int wi = tryInt(wordNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt"), ni, li, si, ui, ai, uai, wi);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), ni, li, si, ui, ai, uai, wi, clumpedNumbers);
                 pwordField.setText(temp);
             }
         });
@@ -163,17 +188,47 @@ public class PasswordGenGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 wordsMix = true;
-                CurrentSettingsForWordsMixing.setText("Currently Set to: MXING");
+                CurrentSettingsForWords.setText(helper.getMenuTxtWords(wordsMix, randomCaps));
             }
         });
         WordsStayAlone.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 wordsMix = false;
-                CurrentSettingsForWordsMixing.setText("Currently Set to: NOT MIXING");
+                CurrentSettingsForWords.setText(helper.getMenuTxtWords(wordsMix, randomCaps));
             }
         });
 
+        RandomCapsOn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                randomCaps = true;
+                CurrentSettingsForWords.setText(helper.getMenuTxtWords(wordsMix, randomCaps));
+            }
+        });
+        RandomCapsOff.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                randomCaps = false;
+                CurrentSettingsForWords.setText(helper.getMenuTxtWords(wordsMix, randomCaps));
+            }
+        });
+
+        numberClumpsOn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clumpedNumbers = true;
+                CurrentSettsForNumbers.setText(helper.getMenuTxtNums(clumpedNumbers));
+            }
+        });
+        numberClumpsOff.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clumpedNumbers = false;
+                CurrentSettsForNumbers.setText(helper.getMenuTxtNums(clumpedNumbers));
+            }
+        });
+        //endregion
 
     }
 

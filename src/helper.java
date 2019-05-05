@@ -1,9 +1,10 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class helper {
 
-    public static String[] getWords (String file)
+    public static String[] getWords (String file, boolean randomCaps)
     {
         try {
             BufferedReader r = new BufferedReader(new FileReader(file));
@@ -11,7 +12,7 @@ public class helper {
             String txt = "";
             while ((txt = r.readLine()) != null)
             {
-                words.add(helper.getBetterForm(txt));
+                words.add(helper.getBetterForm(txt, randomCaps));
                 txt = "";
             }
 
@@ -30,23 +31,79 @@ public class helper {
         }
     }
 
-    public static String getBetterForm (String Word)
+    public static String getBetterForm (String Word, boolean rndCaps)
     {
         char[] chars =  Word.toCharArray();
         String txt = "";
-        for (int i = 0; i < chars.length; i++) {
-            if(i == 0)
-            {
+        if(!rndCaps) {
+            for (int i = 0; i < chars.length; i++) {
                 String j = chars[i] + "";
-                txt += j.toUpperCase();
-            }else
-            {
-                String j = chars[i]  + "";
-                txt += j.toLowerCase();
+                if (i == 0)
+                    txt += j.toUpperCase();
+                 else
+                    txt += j.toLowerCase();
+            }
+        }else
+        {
+            for (int i = 0; i < chars.length; i++) {
+                String j = chars[i] + "";
+                if(helper.getRndBool())
+                {
+                    txt += j.toUpperCase();
+                }else
+                {
+                    txt += j.toLowerCase();
+                }
             }
         }
 
         return txt;
+    }
+
+    public static String getMenuTxtWords (boolean mixes, boolean rndCaps)
+    {
+        String mixesS;
+        String rndCapsS;
+        if(mixes)
+        {
+            mixesS = "MIXING";
+        }else
+        {
+            mixesS = "NOT MIXING";
+        }
+
+        if(rndCaps)
+        {
+            rndCapsS = "RANDOM CAPITALS";
+        }else
+        {
+            rndCapsS = "NON RANDOM CAPITALS";
+        }
+
+        return "Currently set to: " + mixesS + " & " + rndCapsS;
+    }
+    public static String getMenuTxtNums (boolean lumps)
+    {
+        String clump = "";
+        if(lumps)
+            clump = "LUMPING";
+        else
+            clump = "NON LUMPING";
+
+        return "Currently Set to: " + clump;
+    }
+
+    public static boolean getRndBool ()
+    {
+        Random rn = new Random();
+        double n = rn.nextDouble();
+        if(n > 0.5)
+        {
+            return true;
+        }else
+        {
+            return false;
+        }
     }
 
 }
