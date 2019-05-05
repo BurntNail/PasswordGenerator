@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 public class PasswordGenGUI {
 
     private JFrame frame;
-    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF, accentsNTF, upperAccentsNTF, wordNTF;
-    private Checkbox lettersB, numbersB, specCharsB, upperLettersB, accentsB, upperAccentsB, wordsB;
+    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF, accentsNTF, upperAccentsNTF, wordNTF, mostCommonNTF;
+    private Checkbox lettersB, numbersB, specCharsB, upperLettersB, accentsB, upperAccentsB, wordsB, mostCommonB;
     private Dimension frameSize, PWordFieldSize;
     private JPanel bottomPanel;
     private JButton go;
@@ -53,8 +53,9 @@ public class PasswordGenGUI {
         accentsNTF.setToolTipText("How many Lowercase charcters with Accents?");
         upperAccentsNTF = new JTextField("5");
         upperAccentsNTF.setToolTipText("How many Uppercase charcters with Accents?");
-        wordNTF = new JTextField("5");
-        wordNTF.setToolTipText("How many words?");
+        mostCommonNTF = new JTextField("1000");
+        mostCommonNTF.setToolTipText("The most common how many words? \n From  1 - 10,000");
+        
 
         lettersB = new Checkbox("Do you want Lowercase letters?", false);
         numbersB = new Checkbox("Do you want numbers?", false);
@@ -63,6 +64,7 @@ public class PasswordGenGUI {
         accentsB = new Checkbox("Do you want Lowercase characters with accents?", false);
         upperAccentsB = new Checkbox("Do you want Uppercase characters with accents?", false);
         wordsB = new Checkbox("How many words do you want?", true);
+        mostCommonB = new Checkbox("Most Common Words", true);
         //endregion
 
 
@@ -112,6 +114,8 @@ public class PasswordGenGUI {
         bottomPanel.add(specCharsNTF);
         bottomPanel.add(wordsB);
         bottomPanel.add(wordNTF);
+        bottomPanel.add(mostCommonB);
+        bottomPanel.add(mostCommonNTF);
 
         frame.add(pwordField, BorderLayout.NORTH);
         frame.add(bottomPanel, BorderLayout.CENTER);
@@ -134,6 +138,7 @@ public class PasswordGenGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean wb = wordsB.getState();
+                boolean mcb = mostCommonB.getState();
 
                 boolean nb = numbersB.getState();
                 boolean lb = lettersB.getState();
@@ -167,8 +172,9 @@ public class PasswordGenGUI {
                 int ai = tryInt(accentsNTF.getText());
                 int uai = tryInt(upperLettersNTF.getText());
                 int wi = tryInt(wordNTF.getText());
+                int hmmc = tryInt(mostCommonNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), ni, li, si, ui, ai, uai, wi, clumpedNumbers);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps, null), helper.getWords(fileNAME, randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers);
                 pwordField.setText(temp);
             }
         });
