@@ -133,21 +133,23 @@ public class PasswordGen {
                 endList.add(cU + "");
             }
         }
-        if(wordsB && isLimited)
+        if(wordsB && !isLimited)
         {
             for (int i = 0; i < wordsN; i++) {
-                int rndNU = rnd.nextInt(limitedWords.length);
-                String w = limitedWords[rndNU];
-                endList.add(w);
+                int rn = rnd.nextInt(words.length);
+                String c  = words[rn] + "";
+                endList.add(c);
             }
-        }else if(wordsB && !isLimited)
+        }else if (wordsB && isLimited)
         {
             for (int i = 0; i < wordsN; i++) {
-                int rndN = rnd.nextInt(words.length);
-                String w =  words[rndN];
-                endList.add(w);
+                int rn = rnd.nextInt(limitedWords.length);
+                String c = limitedWords[rn] + "";
+                endList.add(c);
             }
         }
+
+
         String str = "";
         int size = endList.size();
 

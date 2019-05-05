@@ -50,10 +50,18 @@ public class helper {
                 }
             }else if(limit > 10000)
             {
-                limited = words;
+                for(String s : words)
+                {
+                    limited.add(s);
+                }
             }
 
-            String[] finalement = limited.toArray(new String[words.size()]);
+            String[] finalement = new String[limited.size()];
+            for(int i = 0; i < finalement.length; i++)
+            {
+                finalement[i] = limited.get(i);
+            }
+
             return finalement;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
