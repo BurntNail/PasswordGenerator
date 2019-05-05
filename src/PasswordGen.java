@@ -68,7 +68,7 @@ public class PasswordGen {
 //        return temp;
 //    }
 
-    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, boolean wordsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, String[] words, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN, int wordsN, boolean clumpedNums)
+    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, boolean wordsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, String[] words, String[] limitedWords, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN, int wordsN, boolean isLimited, boolean clumpedNums)
     {
         Random rnd = new Random();
 
@@ -133,15 +133,21 @@ public class PasswordGen {
                 endList.add(cU + "");
             }
         }
-        if(wordsB)
+        if(wordsB && isLimited)
         {
             for (int i = 0; i < wordsN; i++) {
-                int rndNU = rnd.nextInt(words.length);
-                String w = words[rndNU];
+                int rndNU = rnd.nextInt(limitedWords.length);
+                String w = limitedWords[rndNU];
+                endList.add(w);
+            }
+        }else if(wordsB && !isLimited)
+        {
+            for (int i = 0; i < wordsN; i++) {
+                int rndN = rnd.nextInt(words.length);
+                String w =  words[rndN];
                 endList.add(w);
             }
         }
-        
         String str = "";
         int size = endList.size();
 

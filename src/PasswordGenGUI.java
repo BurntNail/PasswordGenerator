@@ -33,7 +33,7 @@ public class PasswordGenGUI {
         frame.setLayout(new BorderLayout());
 
         bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(7, 2));
+        bottomPanel.setLayout(new GridLayout(8, 2));
 
         pwordField = new JTextField("Password Goes Here");
         pwordField.setEditable(false);
@@ -53,6 +53,8 @@ public class PasswordGenGUI {
         accentsNTF.setToolTipText("How many Lowercase charcters with Accents?");
         upperAccentsNTF = new JTextField("5");
         upperAccentsNTF.setToolTipText("How many Uppercase charcters with Accents?");
+        wordNTF = new JTextField("5");
+        wordNTF.setToolTipText("How many words?");
         mostCommonNTF = new JTextField("1000");
         mostCommonNTF.setToolTipText("The most common how many words? \n From  1 - 10,000");
         
@@ -174,7 +176,7 @@ public class PasswordGenGUI {
                 int wi = tryInt(wordNTF.getText());
                 int hmmc = tryInt(mostCommonNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps, null), helper.getWords(fileNAME, randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), helper.getWordsLimited("top10000.txt", randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers);
                 pwordField.setText(temp);
             }
         });

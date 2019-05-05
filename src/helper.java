@@ -30,6 +30,43 @@ public class helper {
             return w2;
         }
     }
+    public static String[] getWordsLimited (String file, boolean randomCaps, int limit)
+    {
+        try {
+            BufferedReader r = new BufferedReader(new FileReader(file));
+            ArrayList<String> words = new ArrayList<>();
+            ArrayList<String> limited = new ArrayList<>();
+            String txt = "";
+            while ((txt = r.readLine()) != null)
+            {
+                words.add(helper.getBetterForm(txt, randomCaps));
+                txt = "";
+            }
+
+            if(limit <= 10000)
+            {
+                for (int i = 0; i < limit; i++) {
+                    limited.add(words.get(i));
+                }
+            }else if(limit > 10000)
+            {
+                limited = words;
+            }
+
+            String[] finalement = limited.toArray(new String[words.size()]);
+            return finalement;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+            String[] w2 = {"Java", "C#", "Bob", "Car", "Plane"};
+            return w2;
+        }catch(IOException e) {
+            e.printStackTrace();
+
+            String[] w2 = {"Java", "C#", "Bob", "Car", "Plane"};
+            return w2;
+        }
+    }
 
     public static String getBetterForm (String Word, boolean rndCaps)
     {
