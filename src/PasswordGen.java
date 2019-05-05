@@ -68,7 +68,7 @@ public class PasswordGen {
 //        return temp;
 //    }
 
-    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN)
+    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, boolean wordsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, String[] words, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN, int wordsN)
     {
         Random rnd = new Random();
 
@@ -121,6 +121,14 @@ public class PasswordGen {
                 int rndNU = rnd.nextInt(upperAccents.length);
                 char cU = upperAccents[rndNU];
                 endList.add(cU + "");
+            }
+        }
+        if(wordsB)
+        {
+            for (int i = 0; i < wordsN; i++) {
+                int rndNU = rnd.nextInt(words.length);
+                String w = words[rndNU];
+                endList.add(w);
             }
         }
         
