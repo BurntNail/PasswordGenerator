@@ -200,7 +200,7 @@ public class PasswordGenGUI {
                 if(newGUi.hasItBeenOn())
                     gen++;
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), helper.getWordsLimited("top10000.txt", randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi, newWindowChanges, gen);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords(randomCaps), helper.getWordsLimited(randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi, newWindowChanges, gen);
 
                 pwordField.setText(temp);
             }

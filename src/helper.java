@@ -1,13 +1,15 @@
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class helper {
 
-    public static String[] getWords (String file, boolean randomCaps)
+    public static String[] getWords (boolean randomCaps)
     {
         try {
-            BufferedReader r = new BufferedReader(new FileReader(file));
+            URL url = new URL("https://raw.githubusercontent.com/jonbcard/scrabble-bot/master/src/dictionary.txt");
+            BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
             ArrayList<String> words = new ArrayList<>();
             String txt = "";
             while ((txt = r.readLine()) != null)
@@ -15,6 +17,8 @@ public class helper {
                 words.add(helper.getBetterForm(txt, randomCaps));
                 txt = "";
             }
+
+            r.close();
 
             String[] finalement = words.toArray(new String[words.size()]);
             return finalement;
@@ -30,10 +34,11 @@ public class helper {
             return w2;
         }
     }
-    public static String[] getWordsLimited (String file, boolean randomCaps, int limit)
+    public static String[] getWordsLimited (boolean randomCaps, int limit)
     {
         try {
-            BufferedReader r = new BufferedReader(new FileReader(file));
+            URL url = new URL("https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt");
+            BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
             ArrayList<String> words = new ArrayList<>();
             ArrayList<String> limited = new ArrayList<>();
             String txt = "";
@@ -42,6 +47,8 @@ public class helper {
                 words.add(helper.getBetterForm(txt, randomCaps));
                 txt = "";
             }
+
+            r.close();
 
             if(limit <= 10000)
             {
