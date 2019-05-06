@@ -195,7 +195,7 @@ mail
 full
 map
 reviews
-program
+JavaPasswordGenerator
 life
 know
 games

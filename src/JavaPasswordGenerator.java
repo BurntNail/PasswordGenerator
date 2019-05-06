@@ -1,4 +1,4 @@
-public class program {
+public class JavaPasswordGenerator {
 
     public static void main (String[] args)
     {

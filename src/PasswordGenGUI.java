@@ -4,6 +4,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class PasswordGenGUI {
 
@@ -143,6 +144,11 @@ public class PasswordGenGUI {
 
 
         //region JFRame BP
+        URL url = getClass().getResource("logo.png");
+        ImageIcon icn = new ImageIcon(url);
+        frame.setIconImage(icn.getImage());
+
+
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
