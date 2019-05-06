@@ -18,6 +18,7 @@ public class PasswordGenGUI {
     private JMenuItem Copy, WordsMixWithChars, WordsStayAlone, CurrentSettingsForWords, RandomCapsOn, RandomCapsOff, CurrentSettsForNumbers, numberClumpsOn, numberClumpsOff, newWindow, newWinSetts, newWindowOff, newWidnowOn;
     private boolean wordsMix, randomCaps, clumpedNumbers, newWindowChanges;
     private newWindowGUi newGUi;
+    private int gen;
 
 
     public PasswordGenGUI (int w, int h, int nww, int nwh)
@@ -28,6 +29,7 @@ public class PasswordGenGUI {
         clumpedNumbers = false;
         newWindowChanges = false;
         newWindowChanges = true;
+        gen = 0;
         frameSize = new Dimension(w, h);
         PWordFieldSize = new Dimension(frameSize.width, frameSize.height / 8);
 
@@ -35,7 +37,7 @@ public class PasswordGenGUI {
         frame.setPreferredSize(frameSize);
         frame.setLayout(new BorderLayout());
 
-        newGUi = new newWindowGUi(400, 100);
+        newGUi = new newWindowGUi(nww, nwh);
 
         bottomPanel = new JPanel();
         bottomPanel.setLayout(new GridLayout(8, 2));
@@ -189,7 +191,11 @@ public class PasswordGenGUI {
                 int wi = tryInt(wordNTF.getText());
                 int hmmc = tryInt(mostCommonNTF.getText());
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), helper.getWordsLimited("top10000.txt", randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi);
+                if(newGUi.hasItBeenOn())
+                    gen++;
+
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords("words.txt", randomCaps), helper.getWordsLimited("top10000.txt", randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi, newWindowChanges, gen);
+
                 pwordField.setText(temp);
             }
         });
@@ -253,6 +259,7 @@ public class PasswordGenGUI {
         newWindow.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                gen = 0;
                 newGUi.START();
             }
         });

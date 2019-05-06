@@ -68,7 +68,8 @@ public class PasswordGen {
 //        return temp;
 //    }
 
-    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, boolean wordsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, String[] words, String[] limitedWords, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN, int wordsN, boolean isLimited, boolean clumpedNums, newWindowGUi nGUI)
+
+    public static String getPassword (boolean numbersBool, boolean lettersBool, boolean specCharsBool, boolean upperBool, boolean accentsB, boolean upperAccentsB, boolean wordsB, char[] lettersArr, char[] specChars, char[] upperArr, char[] accents, char[] upperAccents, String[] words, String[] limitedWords, int numbersN, int lettersN, int specCharsN, int upperN, int accentsN, int upperAccentsN, int wordsN, boolean isLimited, boolean clumpedNums, newWindowGUi nGUI, boolean newWinChange, int g)
     {
         Random rnd = new Random();
 
@@ -163,7 +164,11 @@ public class PasswordGen {
         System.out.println("numbersBool = [" + numbersBool + "], lettersBool = [" + lettersBool + "], specCharsBool = [" + specCharsBool + "], upperBool = [" + upperBool + "], lettersArr = [" + lettersArr + "], specChars = [" + specChars + "], upperArr = [" + upperArr + "], numbersN = [" + numbersN + "], lettersN = [" + lettersN + "], specCharsN = [" + specCharsN + "], upperN = [" + upperN + "]");
         System.out.println("PasswordGen.getPassword");
         System.out.println("str = " + str);
-        nGUI.changeTxt(str);
+
+        if(newWinChange)
+            nGUI.changeTxt(str);
+        else if(g == 0)
+            nGUI.changeTxt(str);
 
         return str;
 
