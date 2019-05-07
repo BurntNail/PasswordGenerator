@@ -5,6 +5,4 @@ Lots of cool features - Most Common 10,000 words, accented characters, strange c
 
 ## Running it
 
-.jar is in out/artificats/Password Generator/
-
 NEEDS JAVA DEVELOPEMENT ENVIRONMENT
