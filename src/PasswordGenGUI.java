@@ -1,9 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
 
 public class PasswordGenGUI {
@@ -144,9 +146,13 @@ public class PasswordGenGUI {
 
 
         //region JFRame BP
-        URL url = getClass().getResource("logo.png");
-        ImageIcon icn = new ImageIcon(url);
-        frame.setIconImage(icn.getImage());
+        try {
+            URL url = new URL("https://raw.githubusercontent.com/Epacnoss/PasswordGenerator/master/logo.png");
+            Image image = ImageIO.read(url);
+            frame.setIconImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
