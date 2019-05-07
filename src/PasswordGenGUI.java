@@ -11,8 +11,8 @@ import java.net.URL;
 public class PasswordGenGUI {
 
     private JFrame frame;
-    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF, accentsNTF, upperAccentsNTF, wordNTF, mostCommonNTF;
-    private Checkbox lettersB, numbersB, specCharsB, upperLettersB, accentsB, upperAccentsB, wordsB, mostCommonB;
+    private JTextField pwordField, lettersNTF, numbersNTF, specCharsNTF, upperLettersNTF, accentsNTF, upperAccentsNTF, wordNTF, mostCommonNTF, limitLengthNTF;
+    private Checkbox lettersB, numbersB, specCharsB, upperLettersB, accentsB, upperAccentsB, wordsB, mostCommonB, limitLengthB;
     private Dimension frameSize, PWordFieldSize;
     private JPanel bottomPanel;
     private JButton go;
@@ -34,7 +34,7 @@ public class PasswordGenGUI {
         newWindowChanges = true;
         gen = 0;
         frameSize = new Dimension(w, h);
-        PWordFieldSize = new Dimension(frameSize.width, frameSize.height / 8);
+        PWordFieldSize = new Dimension(frameSize.width, frameSize.height / 9);
 
         frame = new JFrame("Password Generator");
         frame.setPreferredSize(frameSize);
@@ -43,7 +43,7 @@ public class PasswordGenGUI {
         newGUi = new newWindowGUi(nww, nwh);
 
         bottomPanel = new JPanel();
-        bottomPanel.setLayout(new GridLayout(8, 2));
+        bottomPanel.setLayout(new GridLayout(9, 2));
 
         pwordField = new JTextField("Password Goes Here");
         pwordField.setEditable(false);
@@ -67,6 +67,8 @@ public class PasswordGenGUI {
         wordNTF.setToolTipText("How many words?");
         mostCommonNTF = new JTextField("1000");
         mostCommonNTF.setToolTipText("The most common how many words? \n From  1 - 10,000");
+        limitLengthNTF = new JTextField("7");
+        limitLengthNTF.setToolTipText("How many of characters do you limit your word to?");
         
 
         lettersB = new Checkbox("Do you want Lowercase letters?", false);
@@ -77,6 +79,7 @@ public class PasswordGenGUI {
         upperAccentsB = new Checkbox("Do you want Uppercase characters with accents?", false);
         wordsB = new Checkbox("How many words do you want?", true);
         mostCommonB = new Checkbox("Most Common Words", true);
+        limitLengthB = new Checkbox("Do you want to limit your word length", true);
         //endregion
 
 
@@ -136,6 +139,8 @@ public class PasswordGenGUI {
         bottomPanel.add(wordNTF);
         bottomPanel.add(mostCommonB);
         bottomPanel.add(mostCommonNTF);
+        bottomPanel.add(limitLengthB);
+        bottomPanel.add(limitLengthNTF);
 
         frame.add(pwordField, BorderLayout.NORTH);
         frame.add(bottomPanel, BorderLayout.CENTER);
@@ -175,6 +180,7 @@ public class PasswordGenGUI {
                 boolean ub = upperLettersB.getState();
                 boolean ab = accentsB.getState();
                 boolean aub = upperAccentsB.getState();
+                boolean limB = limitLengthB.getState();
 
                 if(!wordsMix && wb)
                 {
@@ -202,11 +208,12 @@ public class PasswordGenGUI {
                 int uai = tryInt(upperLettersNTF.getText());
                 int wi = tryInt(wordNTF.getText());
                 int hmmc = tryInt(mostCommonNTF.getText());
+                int limit = tryInt(limitLengthNTF.getText());
 
                 if(newGUi.hasItBeenOn())
                     gen++;
 
-                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords(randomCaps), helper.getWordsLimited(randomCaps, hmmc), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi, newWindowChanges, gen);
+                String temp = PasswordGen.getPassword(nb, lb, sb, ub, ab, aub, wb, getLetters(false),getSCs(), getLetters(true), getAccents(false), getAccents(true), helper.getWords(randomCaps, limit, limB), helper.getWordsLimited(randomCaps, hmmc, limit, limB), ni, li, si, ui, ai, uai, wi, mcb, clumpedNumbers, newGUi, newWindowChanges, gen);
 
                 pwordField.setText(temp);
             }

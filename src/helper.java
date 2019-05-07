@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class helper {
 
-    public static String[] getWords (boolean randomCaps)
+    public static String[] getWords (boolean randomCaps, int limit, boolean isLimited)
     {
         try {
             URL url = new URL("https://raw.githubusercontent.com/jonbcard/scrabble-bot/master/src/dictionary.txt");
@@ -14,8 +14,17 @@ public class helper {
             String txt = "";
             while ((txt = r.readLine()) != null)
             {
-                words.add(helper.getBetterForm(txt, randomCaps));
-                txt = "";
+                if(!isLimited)
+                {
+                    words.add(helper.getBetterForm(txt, randomCaps));
+                    continue;
+                }else if(txt.length() < limit && isLimited)
+                {
+                    words.add(helper.getBetterForm(txt, randomCaps));
+                    txt = "";
+                    continue;
+                }
+
             }
 
             r.close();
@@ -34,7 +43,7 @@ public class helper {
             return w2;
         }
     }
-    public static String[] getWordsLimited (boolean randomCaps, int limit)
+    public static String[] getWordsLimited (boolean randomCaps, int limitMC, int limitLength, boolean isLimited)
     {
         try {
             URL url = new URL("https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt");
@@ -44,18 +53,27 @@ public class helper {
             String txt = "";
             while ((txt = r.readLine()) != null)
             {
-                words.add(helper.getBetterForm(txt, randomCaps));
-                txt = "";
+                if(!isLimited)
+                {
+                    words.add(helper.getBetterForm(txt, randomCaps));
+                    txt = "";
+                    continue;
+                }else if(txt.length() < limitLength && isLimited)
+                {
+                    words.add(helper.getBetterForm(txt, randomCaps));
+                    txt = "";
+                    continue;
+                }
             }
 
             r.close();
 
-            if(limit <= 10000)
+            if(limitMC <= 10000)
             {
-                for (int i = 0; i < limit; i++) {
+                for (int i = 0; i < limitMC; i++) {
                     limited.add(words.get(i));
                 }
-            }else if(limit > 10000)
+            }else if(limitMC > 10000)
             {
                 for(String s : words)
                 {
